@@ -1,13 +1,19 @@
-const heroElementId = 'hero';
-const heroName = 'Player1';
-const heroAvatar = 'images/wizard.png';
-const heroHealth = '60';
-const heroDiceRoll = 6;
-const monsterElementId = 'monster';
-const monsterName = 'Player2';
-const monsterAvatar = 'images/orc.png';
-const monsterHealth = '10';
-const monsterDiceRoll = 4;
+
+const hero = {
+    elementId: 'hero',
+    name: 'Player1',
+    avatar: 'images/wizard.png', 
+    health: '60', 
+    diceRoll: 6,
+}
+
+const monster = {
+    elementId: 'monster',
+    name: 'Player2',
+    avatar: 'images/orc.png', 
+    health: 10, 
+    diceRoll: 4,
+}
 
 function renderCharacter(elementId, name, avatar, health, diceRoll) {
   document.getElementById(elementId).innerHTML = `
