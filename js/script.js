@@ -1,21 +1,21 @@
-
 const hero = {
-    elementId: 'hero',
-    name: 'Player1',
-    avatar: 'images/wizard.png', 
-    health: '60', 
-    diceRoll: 6,
-}
+  elementId: 'hero',
+  name: 'Player1',
+  avatar: 'images/wizard.png',
+  health: 60,
+  diceRoll: 6,
+};
 
 const monster = {
-    elementId: 'monster',
-    name: 'Player2',
-    avatar: 'images/orc.png', 
-    health: 10, 
-    diceRoll: 4,
-}
+  elementId: 'monster',
+  name: 'Player2',
+  avatar: 'images/orc.png',
+  health: 10,
+  diceRoll: 4,
+};
 
-function renderCharacter(elementId, name, avatar, health, diceRoll) {
+function renderCharacter(data) {
+  const { elementId, name, avatar, health, diceRoll } = data;
   document.getElementById(elementId).innerHTML = `
     <div class="character-card">
     <h4 class="name"> ${name} </h4>
@@ -25,11 +25,5 @@ function renderCharacter(elementId, name, avatar, health, diceRoll) {
     </div> 
 `;
 }
-renderCharacter(heroElementId, heroName, heroAvatar, heroHealth, heroDiceRoll);
-renderCharacter(
-  monsterElementId,
-  monsterName,
-  monsterAvatar,
-  monsterHealth,
-  monsterDiceRoll
-);
+renderCharacter(hero);
+renderCharacter(monster);

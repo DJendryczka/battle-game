@@ -70,7 +70,7 @@ main {
 .avatar {
     width: 15vh;
     border: 2px solid #000721;
-    max-width:100%;
+    max-width: 30%;
     opacity: 0.8;
     border-radius: 10px;
     background-color: rgba(0, 7, 33, 0.8);
@@ -79,16 +79,17 @@ main {
 @media(min-width:550px){
     .avatar {
         width: 25vh;
+        max-width: 60%;
     }
 }
 
 .health {
     font-size:1.1rem;
     font-weight: normal;
-    width:90%;
+    width:50%;
     text-align: left;
     margin: 1vh 5%;
-    color:#ccc;
+    color:#dcc;
     letter-spacing: 0.03em
 }
 
