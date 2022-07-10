@@ -2,11 +2,6 @@ function getDiceRollArray(diceCount) {
   return new Array(diceCount).fill(0).map(function () {
     return Math.floor(Math.random() * 6 + 1);
   });
-  // const newDiceRolls = [];
-  // for (let i = 0; i < diceCount; i++) {
-  //   newDiceRolls.push(Math.floor(Math.random() * 6 + 1));
-  // }
-  // return newDiceRolls;
 }
 function getDiceHtml(diceCount) {
   return getDiceRollArray(diceCount)
@@ -32,12 +27,16 @@ const monster = {
   diceCount: 1,
 };
 
-function renderCharacter(data) {
-  const { elementId, name, avatar, health, diceCount } = data;
-
-  const diceHtml = getDiceHtml(diceCount);
-
-  document.getElementById(elementId).innerHTML = `<div class="character-card">
+function Character(data) {
+  this.elementId = data.elementId;
+  this.name = data.name;
+  this.avatar = data.avatar;
+  this.health = data.health;
+  this.diceCount = data.diceCount;
+  this.getCharacterHtml = function(){
+    const { elementId, name, avatar, health, diceCount } = this;
+    const diceHtml = getDiceHtml(diceCount);
+    document.getElementById(elementId).innerHTML = `<div class="character-card">
             <h4 class="name"> ${name} </h4>
             <img class="avatar" src="${avatar}" />
             <div class="health">health: <b> ${health} </b></div>
@@ -45,13 +44,62 @@ function renderCharacter(data) {
                 ${diceHtml}
             </div>
         </div>`;
+  }
 }
+const heroWizard = new Character(hero)
+const monsterOrc = new Character(monster)
+heroWizard.getCharacterHtml()
+monsterOrc.getCharacterHtml()
 
-renderCharacter(hero);
-renderCharacter(monster);
+// function renderCharacter(data) {
+//   const { elementId, name, avatar, health, diceCount } = data;
 
-// const poisonMushrooms = new Array(10).fill('🍄').map(function(mushroom){
-//   return `<div class="box">${mushroom}</div>`
-// }).join('')
+//   const diceHtml = getDiceHtml(diceCount);
 
-// document.getElementById('mushrooms').innerHTML = poisonMushrooms
+//   document.getElementById(elementId).innerHTML = `<div class="character-card">
+//             <h4 class="name"> ${name} </h4>
+//             <img class="avatar" src="${avatar}" />
+//             <div class="health">health: <b> ${health} </b></div>
+//             <div class="dice-container">
+//                 ${diceHtml}
+//             </div>
+//         </div>`;
+// }
+
+// renderCharacter(hero);
+// renderCharacter(monster);
+
+// const hotel1 = {
+// 	name: 'Safari View',
+// 	rooms: 30,
+// 	stars: '⭐⭐⭐⭐⭐',
+// 	costPerNightAdult: 240,
+// 	costPerNightChild: 180,
+// }
+
+// const hotel2 = {
+// 	name: 'Leopard Mansion',
+// 	rooms: 96,
+// 	stars: '⭐⭐⭐',
+// 	costPerNightAdult: 120,
+// 	costPerNightChild: 180,
+// }
+
+// function NationalParkHotels(data){
+//     this.name = data.name
+//     this.rooms = data.rooms
+//     this.stars = data.stars
+//     this.costPerNightAdult = data.costPerNightAdult
+//     this.costPerNightChild = data.costPerNightChild
+
+// 	this.summariseHotel = function(){
+// 		const totalPrice = this.costPerNightAdult * 2 + this.costPerNightChild * 2
+// 		console.log(`A one night stay at the ${this.name} for two adults and
+// 		two children costs a total of ${totalPrice}`)
+// 	}
+// }
+
+// const safariView = new NationalParkHotels(hotel1)
+// const leopardMansion = new NationalParkHotels(hotel2)
+// safariView.summariseHotel()
+// leopardMansion.summariseHotel()
