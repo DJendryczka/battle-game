@@ -9,7 +9,7 @@ function Character(data) {
         .join('');
     };
     this.getCharacterHtml = function () {
-      const { elementId, name, avatar, health, diceCount } = this;
+      const { name, avatar, health, diceCount } = this;
       const diceHtml = this.getDiceHtml(diceCount);
       return `<div class="character-card">
               <h4 class="name"> ${name} </h4>
