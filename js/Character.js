@@ -4,7 +4,9 @@ function Character(data) {
   Object.assign(this, data);
 
   this.diceArray = getDicePlaceholderHtml(this.diceCount);
-
+  this.takeDamage = function (){
+    console.log(`${this.name} is damaged`)
+  }
   this.getDiceHtml = function () {
     this.currentDiceScore = getDiceRollArray(this.diceCount);
     this.diceArray = this.currentDiceScore
