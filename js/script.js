@@ -1,14 +1,12 @@
-import characterData from "./data.js";
-import Character  from "./Character.js";
-import { getDiceRollArray } from "./utils.js";
-function attack(){
-  render()
+import characterData from './data.js';
+import Character from './Character.js';
+
+function attack() {
+  render();
 }
 
-
 function render() {
-  document.getElementById('hero').innerHTML =
-    wizard.getCharacterHtml();
+  document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
   document.getElementById('monster').innerHTML = orc.getCharacterHtml();
 }
 document.getElementById('attack-button').addEventListener('click', attack);
