@@ -5,7 +5,10 @@ function Character(data) {
 
   this.diceArray = getDicePlaceholderHtml(this.diceCount);
   this.takeDamage = function (attackScoreArray){
-    console.log(`${this.name} ${attackScoreArray}`)
+    const totalAttackScore = attackScoreArray.reduce(function(total, currentScore){
+        return total + currentScore
+    })
+    this.health -= totalAttackScore
   }
   this.getDiceHtml = function () {
     this.currentDiceScore = getDiceRollArray(this.diceCount);
