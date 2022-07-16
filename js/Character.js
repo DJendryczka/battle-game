@@ -9,6 +9,10 @@ function Character(data) {
         return total + currentScore
     })
     this.health -= totalAttackScore
+    if ( this.health <= 0){
+      this.dead = true
+      this.health = 0
+    }
   }
   this.getDiceHtml = function () {
     this.currentDiceScore = getDiceRollArray(this.diceCount);
